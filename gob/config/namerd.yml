@@ -6,9 +6,9 @@ storage:
   kind: io.l5d.inMemory
   namespaces:
     default: |
-      /host       => /$/inet/web/8080;
-      /host/gen   => /$/inet/gen/8181;
-      /host/word  => /$/inet/word/8282;
+      /host       => /$/inet/web/8080 & /$/inet/web2/8080;
+      /host/gen   => /$/inet/gen/8181 & /$/inet/gen2/8181;
+      /host/word  => /$/inet/word/8282 & /$/inet/word2/8282;
       /http/1.1/* => /host;
 interfaces:
 - kind: io.l5d.thriftNameInterpreter

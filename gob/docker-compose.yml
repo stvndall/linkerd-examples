@@ -3,20 +3,27 @@ version: '2'
 services:
   web:
     build: src/web
-    container_name: web
-    ports: ["8080:8080"]
     command: -gen-addr=linkerd:4140 -word-addr=linkerd:4140
 
+  web2:
+    build: src/web
+    command: -gen-addr=linkerd:4140 -word-addr=linkerd:4140
   gen:
     build: src/gen
-    container_name: gen
-    ports: ["8181:8181"]
+#    container_name: gen2
+#    ports: ["8181:8181"]
 
+  gen2:
+    build: src/gen
+#    container_name: gen2
+    ports: ["8182:8181"]
   word:
     build: src/word
     container_name: word
     ports: ["8282:8282"]
 
+  word2:
+    build: src/word
   linkerd:
     image: buoyantio/linkerd:0.7.0
     container_name: linkerd
